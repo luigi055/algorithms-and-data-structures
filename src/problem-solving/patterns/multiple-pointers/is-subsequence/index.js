@@ -1,6 +1,6 @@
 function isSubsequence(string, stringToCompare) {
-  var left = 0;
-  var right = 0;
+  let left = 0;
+  let right = 0;
 
   if (!string) return true;
   while (right < stringToCompare.length) {
