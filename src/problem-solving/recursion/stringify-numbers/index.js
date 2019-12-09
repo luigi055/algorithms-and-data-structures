@@ -1,17 +1,19 @@
 const isNumber = number => typeof number === "number";
+const isPlainObject = value =>
+  typeof value === "object" && !Array.isArray(value) && value !== null;
 
 function stringifyNumbers(object) {
-  const ObjectParameter = JSON.parse(JSON.stringify(object));
-  const keys = Object.keys(object);
+  const ObjectParameter = {};
 
-  for (let i = 0; i < keys.length; i++) {
-    const item = keys[i];
-    const property = ObjectParameter[item];
+  for (const key in object) {
+    const property = object[key];
 
-    if (typeof property === "object") {
-      ObjectParameter[item] = stringifyNumbers(ObjectParameter[item]);
-    } else if (isNumber(ObjectParameter[item])) {
-      ObjectParameter[item] = ObjectParameter[item].toString();
+    if (isPlainObject(property)) {
+      ObjectParameter[key] = stringifyNumbers(property);
+    } else if (isNumber(property)) {
+      ObjectParameter[key] = property.toString();
+    } else {
+      ObjectParameter[key] = property;
     }
   }
   return ObjectParameter;
