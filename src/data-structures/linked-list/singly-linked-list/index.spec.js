@@ -98,4 +98,45 @@ describe("Testing SinglyLinkedList Class", () => {
 
     expect(linkedList.tail.value).toBe(secondValue);
   });
+
+  it("should remove the first item", () => {
+    const linkedList = new SinglyLinkedList();
+    const firstValue = "hello";
+    const secondValue = "world";
+    const thirdValue = "universe";
+
+    linkedList.push(firstValue);
+    linkedList.push(secondValue);
+    linkedList.push(thirdValue);
+    linkedList.shift();
+
+    expect(linkedList.length).toBe(2);
+    expect(linkedList.head.value).toBe(secondValue);
+  });
+
+  test("the tail and head should be null when there is just one item and invoke shift", () => {
+    const linkedList = new SinglyLinkedList();
+    const firstValue = "hello";
+
+    linkedList.push(firstValue);
+    linkedList.shift();
+
+    expect(linkedList.tail).toBe(null);
+    expect(linkedList.head).toBe(null);
+  });
+
+  it("should remove the first item", () => {
+    const linkedList = new SinglyLinkedList();
+    const firstValue = "hello";
+    const secondValue = "world";
+    const thirdValue = "universe";
+
+    linkedList.push(firstValue);
+    linkedList.push(secondValue);
+    linkedList.push(thirdValue);
+    linkedList.shift();
+
+    expect(linkedList.length).toBe(2);
+    expect(linkedList.head.value).toBe(secondValue);
+  });
 });
