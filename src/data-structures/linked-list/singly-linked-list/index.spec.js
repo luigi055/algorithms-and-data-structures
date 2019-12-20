@@ -312,4 +312,70 @@ describe("Testing SinglyLinkedList Class", () => {
     expect(linkedList.get(1).value).toBe(valueToChange);
     expect(linkedList.get(0).next.value).toBe(valueToChange);
   });
+
+  it("should remove the first node when trying to remove the position zero", () => {
+    const linkedList = new SinglyLinkedList();
+    const firstValue = "hello";
+    const secondValue = "world";
+    const thirdValue = "universe";
+    const valueToChange = "something";
+
+    linkedList.push(firstValue);
+    linkedList.push(secondValue);
+    linkedList.push(thirdValue);
+
+    expect(linkedList.length).toBe(3);
+    expect(linkedList.remove(0).value).toBe(firstValue);
+    expect(linkedList.length).toBe(2);
+    expect(linkedList.get(0).value).toBe(secondValue);
+  });
+
+  it("should remove the last node when trying to remove the last position in the linked list", () => {
+    const linkedList = new SinglyLinkedList();
+    const firstValue = "hello";
+    const secondValue = "world";
+    const thirdValue = "universe";
+    const valueToChange = "something";
+
+    linkedList.push(firstValue);
+    linkedList.push(secondValue);
+    linkedList.push(thirdValue);
+
+    expect(linkedList.length).toBe(3);
+    expect(linkedList.remove(3).value).toBe(thirdValue);
+    expect(linkedList.length).toBe(2);
+    expect(linkedList.get(3)).toBe(null);
+  });
+
+  it("should return false when try to remove an index less than 0", () => {
+    const linkedList = new SinglyLinkedList();
+    const firstValue = "hello";
+    const secondValue = "world";
+    const thirdValue = "universe";
+    const valueToChange = "something";
+
+    linkedList.push(firstValue);
+    linkedList.push(secondValue);
+    linkedList.push(thirdValue);
+
+    expect(linkedList.length).toBe(3);
+    expect(linkedList.remove(-1)).toBe(undefined);
+    expect(linkedList.length).toBe(3);
+  });
+
+  it("should return false when try to remove an index greater than the length of the linked list", () => {
+    const linkedList = new SinglyLinkedList();
+    const firstValue = "hello";
+    const secondValue = "world";
+    const thirdValue = "universe";
+    const valueToChange = "something";
+
+    linkedList.push(firstValue);
+    linkedList.push(secondValue);
+    linkedList.push(thirdValue);
+
+    expect(linkedList.length).toBe(3);
+    expect(linkedList.remove(4)).toBe(undefined);
+    expect(linkedList.length).toBe(3);
+  });
 });

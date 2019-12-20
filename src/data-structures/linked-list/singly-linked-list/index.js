@@ -109,6 +109,20 @@ class SinglyLinkedList {
 
     return true;
   }
+
+  remove(index, value) {
+    if (index < 0 || index > this.length) return undefined;
+    if (index === this.length) return this.pop(value);
+    if (index === 0) return this.shift(value);
+
+    const previousNode = this.get(index - 1);
+    const removed = previousNode.next;
+    previousNode.next = removed.next;
+
+    this.length--;
+
+    return removed;
+  }
 }
 
 export default SinglyLinkedList;
