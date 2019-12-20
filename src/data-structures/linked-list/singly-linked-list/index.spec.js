@@ -164,4 +164,152 @@ describe("Testing SinglyLinkedList Class", () => {
     expect(linkedList.tail.value).toBe(firstValue);
     expect(linkedList.tail.next).toBe(null);
   });
+
+  it("should find the second node of the list", () => {
+    const linkedList = new SinglyLinkedList();
+    const firstValue = "hello";
+    const secondValue = "World";
+    const thirdValue = "universe";
+
+    linkedList.push(firstValue);
+    linkedList.push(secondValue);
+    linkedList.push(thirdValue);
+
+    expect(linkedList.length).toBe(3);
+    expect(linkedList.get(1).value).toBe(secondValue);
+  });
+
+  it("should return null when get a node index that is greater than the linked list length", () => {
+    const linkedList = new SinglyLinkedList();
+    const firstValue = "hello";
+
+    linkedList.push(firstValue);
+
+    expect(linkedList.length).toBe(1);
+    expect(linkedList.get(5)).toBe(null);
+  });
+
+  it("should return null when get a node index is less than 0", () => {
+    const linkedList = new SinglyLinkedList();
+    const firstValue = "hello";
+
+    linkedList.push(firstValue);
+
+    expect(linkedList.length).toBe(1);
+    expect(linkedList.get(-1)).toBe(null);
+  });
+
+  it('should set the second value "something"', () => {
+    const linkedList = new SinglyLinkedList();
+    const firstValue = "hello";
+    const secondValue = "wonderful";
+
+    linkedList.push(firstValue);
+    linkedList.push(secondValue);
+    expect(linkedList.set(1, "something")).toBe(true);
+    expect(linkedList.get(1).value).toBe("something");
+  });
+
+  it("should not set a new value to a index that doesnt exist", () => {
+    const linkedList = new SinglyLinkedList();
+    const firstValue = "hello";
+
+    linkedList.push(firstValue);
+    expect(linkedList.set(1, "something")).toBe(false);
+    expect(linkedList.get(1)).toBe(null);
+  });
+
+  it("should return false when try to insert a value that is less than 0", () => {
+    const linkedList = new SinglyLinkedList();
+
+    expect(linkedList.insert(-1, "something")).toBe(false);
+  });
+
+  it("should return false when try to insert a value that is greater than length", () => {
+    const linkedList = new SinglyLinkedList();
+    const firstValue = "hello";
+
+    linkedList.push(firstValue);
+
+    expect(linkedList.insert(2, "something")).toBe(false);
+  });
+
+  it("should return false when trying to insert a value that is greater than length", () => {
+    const linkedList = new SinglyLinkedList();
+    const firstValue = "hello";
+
+    linkedList.push(firstValue);
+
+    expect(linkedList.insert(2, "something")).toBe(false);
+  });
+  it("should return true when trying to insert a value that is equal to the length", () => {
+    const linkedList = new SinglyLinkedList();
+    const firstValue = "hello";
+    const valueToChange = "something";
+
+    linkedList.push(firstValue);
+
+    expect(linkedList.insert(1, valueToChange)).toBe(true);
+    expect(linkedList.get(1).value).toBe(valueToChange);
+  });
+
+  it("should return true when trying to insert a value that in the position 0", () => {
+    const linkedList = new SinglyLinkedList();
+    const firstValue = "hello";
+    const valueToChange = "something";
+
+    linkedList.push(firstValue);
+
+    expect(linkedList.insert(0, valueToChange)).toBe(true);
+    expect(linkedList.get(0).value).toBe(valueToChange);
+  });
+
+  it("should add a new node when trying to insert a value in the first position", () => {
+    const linkedList = new SinglyLinkedList();
+    const firstValue = "hello";
+    const secondValue = "world";
+    const thirdValue = "universe";
+    const valueToChange = "something";
+
+    linkedList.push(firstValue);
+    linkedList.push(secondValue);
+    linkedList.push(thirdValue);
+
+    expect(linkedList.length).toBe(3);
+    expect(linkedList.insert(1, valueToChange)).toBe(true);
+    expect(linkedList.length).toBe(4);
+    expect(linkedList.get(1).value).toBe(valueToChange);
+  });
+
+  test("when insert a new node the next node of the next node should be the inserted node", () => {
+    const linkedList = new SinglyLinkedList();
+    const firstValue = "hello";
+    const secondValue = "world";
+    const thirdValue = "universe";
+    const valueToChange = "something";
+
+    linkedList.push(firstValue);
+    linkedList.push(secondValue);
+    linkedList.push(thirdValue);
+
+    expect(linkedList.insert(1, valueToChange)).toBe(true);
+    expect(linkedList.get(1).value).toBe(valueToChange);
+    expect(linkedList.get(1).next.value).toBe(secondValue);
+  });
+
+  test("when insert a new node the next node of the previous node should be the inserted node", () => {
+    const linkedList = new SinglyLinkedList();
+    const firstValue = "hello";
+    const secondValue = "world";
+    const thirdValue = "universe";
+    const valueToChange = "something";
+
+    linkedList.push(firstValue);
+    linkedList.push(secondValue);
+    linkedList.push(thirdValue);
+
+    expect(linkedList.insert(1, valueToChange)).toBe(true);
+    expect(linkedList.get(1).value).toBe(valueToChange);
+    expect(linkedList.get(0).next.value).toBe(valueToChange);
+  });
 });

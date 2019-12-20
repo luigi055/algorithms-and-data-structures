@@ -73,6 +73,42 @@ class SinglyLinkedList {
 
     return currentHead;
   }
+
+  get(index) {
+    if (index < 0 || index >= this.length) return null;
+    let accumulator = this.head;
+    for (let i = 1; i <= index; i++) {
+      accumulator = accumulator.next;
+    }
+
+    return accumulator;
+  }
+
+  set(index, value) {
+    const foundNode = this.get(index);
+    if (foundNode) {
+      foundNode.value = value;
+      return true;
+    }
+    return false;
+  }
+
+  insert(index, value) {
+    if (index < 0 || index > this.length) return false;
+    if (index === this.length) return !!this.push(value);
+    if (index === 0) return !!this.unshift(value);
+
+    const newNode = new Node(value);
+    const previousNode = this.get(index - 1);
+    const temporal = previousNode.next;
+    previousNode.next = newNode;
+
+    newNode.next = temporal;
+
+    this.length++;
+
+    return true;
+  }
 }
 
 export default SinglyLinkedList;
