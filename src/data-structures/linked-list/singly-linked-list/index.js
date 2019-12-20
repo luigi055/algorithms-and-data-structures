@@ -26,6 +26,20 @@ class SinglyLinkedList {
     return this;
   }
 
+  unshift(value) {
+    const newNode = new Node(value);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      newNode.next = newNode;
+      this.head = newNode;
+    }
+    this.length++;
+
+    return this;
+  }
+
   pop() {
     if (!this.head) return undefined;
     let currentNode = this.head;

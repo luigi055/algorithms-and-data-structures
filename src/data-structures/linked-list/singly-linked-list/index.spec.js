@@ -139,4 +139,29 @@ describe("Testing SinglyLinkedList Class", () => {
     expect(linkedList.length).toBe(2);
     expect(linkedList.head.value).toBe(secondValue);
   });
+
+  it("should add a new item at tbe biggining of the lined list", () => {
+    const linkedList = new SinglyLinkedList();
+    const firstValue = "hello";
+
+    linkedList.unshift(firstValue);
+
+    expect(linkedList.length).toBe(1);
+    expect(linkedList.head.value).toBe(firstValue);
+    expect(linkedList.tail.value).toBe(firstValue);
+  });
+
+  test("when add 2 items the tail node should be equal to the first value entered with unshift", () => {
+    const linkedList = new SinglyLinkedList();
+    const firstValue = "hello";
+    const secondValue = "World";
+
+    linkedList.unshift(firstValue);
+    linkedList.unshift(secondValue);
+
+    expect(linkedList.length).toBe(2);
+    expect(linkedList.head.value).toBe(secondValue);
+    expect(linkedList.tail.value).toBe(firstValue);
+    expect(linkedList.tail.next).toBe(null);
+  });
 });
