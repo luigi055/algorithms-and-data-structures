@@ -251,4 +251,40 @@ describe("Testing DoublyLinkedList class", () => {
     expect(doublyLinkedList.tail.previous.value).toBe(secondValue);
     expect(doublyLinkedList.length).toBe(3);
   });
+
+  it("should find the second node of the list", () => {
+    const linkedList = new DoublyLinkedList();
+    const firstValue = "hello";
+    const secondValue = "World";
+    const thirdValue = "universe";
+
+    linkedList.push(firstValue);
+    linkedList.push(secondValue);
+    linkedList.push(thirdValue);
+
+    expect(linkedList.length).toBe(3);
+    expect(linkedList.get(1).value).toBe(secondValue);
+    expect(linkedList.get(1).next.value).toBe(thirdValue);
+    expect(linkedList.get(1).previous.value).toBe(firstValue);
+  });
+
+  it("should return null when get a node index that is greater than the linked list length", () => {
+    const linkedList = new DoublyLinkedList();
+    const firstValue = "hello";
+
+    linkedList.push(firstValue);
+
+    expect(linkedList.length).toBe(1);
+    expect(linkedList.get(5)).toBe(null);
+  });
+
+  it("should return null when get a node index is less than 0", () => {
+    const linkedList = new DoublyLinkedList();
+    const firstValue = "hello";
+
+    linkedList.push(firstValue);
+
+    expect(linkedList.length).toBe(1);
+    expect(linkedList.get(-1)).toBe(null);
+  });
 });

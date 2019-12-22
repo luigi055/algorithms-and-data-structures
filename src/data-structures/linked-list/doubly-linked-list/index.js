@@ -81,6 +81,16 @@ class DoublyLinkedList {
 
     return this;
   }
+
+  get(index) {
+    if (index < 0 || index >= this.length) return null;
+    let accumulator = this.head;
+    for (let i = 1; i <= index; i++) {
+      accumulator = accumulator.next;
+    }
+
+    return accumulator;
+  }
 }
 
 export default DoublyLinkedList;
