@@ -31,24 +31,20 @@ class DoublyLinkedList {
 
   pop() {
     if (!this.head) return undefined;
-    let currentNode = this.head;
-    let newTail = currentNode;
+    const poppedNode = this.tail;
 
-    while (currentNode.next) {
-      newTail = currentNode;
-      currentNode = currentNode.next;
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      this.tail = poppedNode.previous;
+      this.tail.next = null;
+      poppedNode.previous = null;
     }
 
-    this.tail = newTail;
-    this.tail.next = null;
     this.length--;
 
-    if (this.length === 0) {
-      this.tail = null;
-      this.head = null;
-    }
-
-    return currentNode;
+    return poppedNode;
   }
 }
 
