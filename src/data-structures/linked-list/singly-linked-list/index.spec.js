@@ -342,12 +342,12 @@ describe("Testing SinglyLinkedList Class", () => {
     linkedList.push(thirdValue);
 
     expect(linkedList.length).toBe(3);
-    expect(linkedList.remove(3).value).toBe(thirdValue);
+    expect(linkedList.remove(2).value).toBe(thirdValue);
     expect(linkedList.length).toBe(2);
-    expect(linkedList.get(3)).toBe(null);
+    expect(linkedList.get(2)).toBe(null);
   });
 
-  it("should return false when try to remove an index less than 0", () => {
+  it("should return false when trying to remove an index less than 0", () => {
     const linkedList = new SinglyLinkedList();
     const firstValue = "hello";
     const secondValue = "world";
@@ -363,7 +363,7 @@ describe("Testing SinglyLinkedList Class", () => {
     expect(linkedList.length).toBe(3);
   });
 
-  it("should return false when try to remove an index greater than the length of the linked list", () => {
+  it("should return false when trying to remove an index greater than the length of the linked list", () => {
     const linkedList = new SinglyLinkedList();
     const firstValue = "hello";
     const secondValue = "world";
@@ -377,5 +377,53 @@ describe("Testing SinglyLinkedList Class", () => {
     expect(linkedList.length).toBe(3);
     expect(linkedList.remove(4)).toBe(undefined);
     expect(linkedList.length).toBe(3);
+  });
+
+  it("should return the second value when trying to remove the first position of the singly linked list", () => {
+    const linkedList = new SinglyLinkedList();
+    const firstValue = "hello";
+    const secondValue = "world";
+    const thirdValue = "universe";
+    const valueToChange = "something";
+
+    linkedList.push(firstValue);
+    linkedList.push(secondValue);
+    linkedList.push(thirdValue);
+
+    expect(linkedList.length).toBe(3);
+    expect(linkedList.remove(1).value).toBe(secondValue);
+    expect(linkedList.length).toBe(2);
+  });
+
+  test("when remove the first position the second position should be now the first position of the singly linked list", () => {
+    const linkedList = new SinglyLinkedList();
+    const firstValue = "hello";
+    const secondValue = "world";
+    const thirdValue = "universe";
+    const valueToChange = "something";
+
+    linkedList.push(firstValue);
+    linkedList.push(secondValue);
+    linkedList.push(thirdValue);
+
+    linkedList.remove(1);
+
+    expect(linkedList.get(1).value).toBe(thirdValue);
+  });
+  test("when remove the last position the tail should be the penultimate node", () => {
+    const linkedList = new SinglyLinkedList();
+    const firstValue = "hello";
+    const secondValue = "world";
+    const thirdValue = "universe";
+    const valueToChange = "something";
+
+    linkedList.push(firstValue);
+    linkedList.push(secondValue);
+    linkedList.push(thirdValue);
+
+    linkedList.remove(2);
+
+    expect(linkedList.get(2)).toBe(null);
+    expect(linkedList.tail.value).toBe(secondValue);
   });
 });
