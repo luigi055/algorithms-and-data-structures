@@ -426,4 +426,40 @@ describe("Testing SinglyLinkedList Class", () => {
     expect(linkedList.get(2)).toBe(null);
     expect(linkedList.tail.value).toBe(secondValue);
   });
+  test("the head should be the tail when and vice versa when invoke the reverse mehtod", () => {
+    const linkedList = new SinglyLinkedList();
+    const firstValue = "hello";
+    const secondValue = "world";
+    const thirdValue = "universe";
+    const valueToChange = "something";
+
+    linkedList.push(firstValue);
+    linkedList.push(secondValue);
+    linkedList.push(thirdValue);
+
+    linkedList.reverse();
+
+    expect(linkedList.head.value).toBe(thirdValue);
+    expect(linkedList.tail.value).toBe(firstValue);
+  });
+  test("the first position should be the third", () => {
+    const linkedList = new SinglyLinkedList();
+    const firstValue = "hello";
+    const secondValue = "world";
+    const thirdValue = "universe";
+    const fourthValue = "galaxy";
+    const fifthValue = "dimension";
+    const valueToChange = "something";
+
+    linkedList.push(firstValue);
+    linkedList.push(secondValue);
+    linkedList.push(thirdValue);
+    linkedList.push(fourthValue);
+    linkedList.push(fifthValue);
+
+    linkedList.reverse();
+
+    expect(linkedList.get(3).value).toBe(secondValue);
+    expect(linkedList.get(1).value).toBe(fourthValue);
+  });
 });

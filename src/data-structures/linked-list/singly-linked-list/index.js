@@ -123,6 +123,23 @@ class SinglyLinkedList {
 
     return removed;
   }
+
+  reverse() {
+    let node = this.head;
+    this.head = this.tail;
+    this.tail = node;
+    let next;
+    let previous = null;
+
+    for (let i = 0; i < this.length; i++) {
+      next = node.next;
+      node.next = previous;
+
+      previous = node;
+      node = next;
+    }
+    return this;
+  }
 }
 
 export default SinglyLinkedList;
