@@ -28,6 +28,28 @@ class DoublyLinkedList {
 
     return this;
   }
+
+  pop() {
+    if (!this.head) return undefined;
+    let currentNode = this.head;
+    let newTail = currentNode;
+
+    while (currentNode.next) {
+      newTail = currentNode;
+      currentNode = currentNode.next;
+    }
+
+    this.tail = newTail;
+    this.tail.next = null;
+    this.length--;
+
+    if (this.length === 0) {
+      this.tail = null;
+      this.head = null;
+    }
+
+    return currentNode;
+  }
 }
 
 export default DoublyLinkedList;
