@@ -268,6 +268,26 @@ describe("Testing DoublyLinkedList class", () => {
     expect(linkedList.get(1).previous.value).toBe(firstValue);
   });
 
+  it("should find the penultimate node of the list", () => {
+    const linkedList = new DoublyLinkedList();
+    const firstValue = "hello";
+    const secondValue = "World";
+    const thirdValue = "universe";
+    const fourthValue = "galaxy";
+    const fifthValue = "dimension";
+
+    linkedList.push(firstValue);
+    linkedList.push(secondValue);
+    linkedList.push(thirdValue);
+    linkedList.push(fourthValue);
+    linkedList.push(fifthValue);
+
+    expect(linkedList.length).toBe(5);
+    expect(linkedList.get(3).value).toBe(fourthValue);
+    expect(linkedList.get(3).next.value).toBe(fifthValue);
+    expect(linkedList.get(3).previous.value).toBe(thirdValue);
+  });
+
   it("should return null when get a node index that is greater than the linked list length", () => {
     const linkedList = new DoublyLinkedList();
     const firstValue = "hello";

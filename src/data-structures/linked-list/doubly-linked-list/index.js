@@ -84,12 +84,24 @@ class DoublyLinkedList {
 
   get(index) {
     if (index < 0 || index >= this.length) return null;
-    let accumulator = this.head;
-    for (let i = 1; i <= index; i++) {
-      accumulator = accumulator.next;
+    let count;
+    let current;
+    if (index <= this.length / 2) {
+      count = 0;
+      current = this.head;
+      while (count !== index) {
+        current = current.next;
+        count++;
+      }
+    } else {
+      count = this.length - 1;
+      current = this.tail;
+      while (count !== index) {
+        current = current.previous;
+        count--;
+      }
     }
-
-    return accumulator;
+    return current;
   }
 }
 
