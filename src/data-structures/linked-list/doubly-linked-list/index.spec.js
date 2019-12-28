@@ -307,4 +307,100 @@ describe("Testing DoublyLinkedList class", () => {
     expect(linkedList.length).toBe(1);
     expect(linkedList.get(-1)).toBe(null);
   });
+
+  it('should set the second value "something"', () => {
+    const linkedList = new DoublyLinkedList();
+    const firstValue = "hello";
+    const secondValue = "wonderful";
+
+    linkedList.push(firstValue);
+    linkedList.push(secondValue);
+    expect(linkedList.set(1, "something")).toBe(true);
+    expect(linkedList.get(1).value).toBe("something");
+  });
+
+  it("should not set a new value to a index that doesnt exist", () => {
+    const linkedList = new DoublyLinkedList();
+    const firstValue = "hello";
+
+    linkedList.push(firstValue);
+    expect(linkedList.set(1, "something")).toBe(false);
+    expect(linkedList.get(1)).toBe(null);
+  });
+
+  it("should not insert a new value when the index is a negative number", () => {
+    const linkedList = new DoublyLinkedList();
+    const firstValue = "hello";
+
+    expect(linkedList.insert(-1, firstValue)).toBe(false);
+  });
+
+  it("should not insert a new value when the index is greater than the length of the linked list", () => {
+    const linkedList = new DoublyLinkedList();
+    const firstValue = "hello";
+    const secondValue = "world";
+
+    linkedList.push(firstValue);
+
+    expect(linkedList.insert(2, secondValue)).toBe(false);
+  });
+
+  it("should insert the first node in the linked list", () => {
+    const linkedList = new DoublyLinkedList();
+    const firstValue = "hello";
+
+    expect(linkedList.insert(0, firstValue)).toBe(true);
+    expect(linkedList.get(0).value).toBe(firstValue);
+  });
+
+  it("should insert the last node in the linked list", () => {
+    const linkedList = new DoublyLinkedList();
+    const firstValue = "hello";
+    const secondValue = "world";
+    const thirdValue = "universe";
+    const newThirdValue = "galaxy";
+
+    linkedList.push(firstValue);
+    linkedList.push(secondValue);
+    linkedList.push(thirdValue);
+
+    expect(linkedList.insert(2, newThirdValue)).toBe(true);
+    expect(linkedList.get(2).value).toBe(newThirdValue);
+  });
+
+  it("should insert the first position of the linked list", () => {
+    const linkedList = new DoublyLinkedList();
+
+    const firstValue = "hello";
+    const secondValue = "world";
+    const newSecondValue = "universe";
+    const thirdValue = "galaxy";
+
+    linkedList.push(firstValue);
+    linkedList.push(secondValue);
+    linkedList.push(thirdValue);
+
+    expect(linkedList.insert(1, newSecondValue)).toBe(true);
+    expect(linkedList.get(1).value).toBe(newSecondValue);
+  });
+
+  it("should point to the proper next and the previous node when insert a new node", () => {
+    const linkedList = new DoublyLinkedList();
+
+    const firstValue = "hello";
+    const secondValue = "world";
+    const newSecondValue = "universe";
+    const thirdValue = "galaxy";
+
+    linkedList.push(firstValue);
+    linkedList.push(secondValue);
+    linkedList.push(thirdValue);
+
+    expect(linkedList.insert(1, newSecondValue)).toBe(true);
+    expect(linkedList.get(0).next.value).toBe(newSecondValue);
+    expect(linkedList.get(2).previous.value).toBe(newSecondValue);
+    expect(linkedList.get(1).value).toBe(newSecondValue);
+    expect(linkedList.get(1).next.value).toBe(secondValue);
+    expect(linkedList.get(1).previous.value).toBe(firstValue);
+  });
 });
