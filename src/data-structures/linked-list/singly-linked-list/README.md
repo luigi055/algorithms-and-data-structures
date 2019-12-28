@@ -2,9 +2,9 @@
 
 ## What is it?
 
-It's a data structure that contains a **head**, **tail** and **length** property.
+It's a data structure that contains a **head**, **tail** and **length** property. It consists in a group of vertices (Nodes) which together represent a sequence. Each **node** is composed of data or a **value** and a **pointer** or reference to the next node in the sequence
 
-Linked lists of nodes, and each **node** has a **value** and a **pointer** to another node or null
+Linked List and its variations are used as underlying data structure to implement List, Stack, Queue, and Deque ADTs.
 
 ## Comparisons with Arrays:
 

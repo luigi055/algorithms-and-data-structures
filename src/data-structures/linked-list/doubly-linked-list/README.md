@@ -4,6 +4,8 @@
 
 Doubly Linked List is **almost** identical to Singly Linked Lists except every node has another pointer, to the **previous** node!
 
+The usage of prev pointers makes it possible to move/iterate backwards at the expense of two-times memory usage requirement as now each vertex records one additional pointer. The positive side effect of this ability to move backwards is now we can address the weak removal at tail case of the Singly Linked List.
+
 ## Comparisons with Singly Linked Lists
 
 - Better for finding nodes and can be done in half the time.
