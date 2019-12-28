@@ -130,6 +130,7 @@ class DoublyLinkedList {
 
     return true;
   }
+
   remove(index, value) {
     if (index < 0 || index >= this.length) return undefined;
     if (index === this.length - 1) return this.pop();
