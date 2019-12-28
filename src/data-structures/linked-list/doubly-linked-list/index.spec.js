@@ -403,4 +403,98 @@ describe("Testing DoublyLinkedList class", () => {
     expect(linkedList.get(1).next.value).toBe(secondValue);
     expect(linkedList.get(1).previous.value).toBe(firstValue);
   });
+
+  it("should not remove the element if the index is smaller than 0", () => {
+    const linkedList = new DoublyLinkedList();
+
+    expect(linkedList.remove(-1)).toBe(undefined);
+  });
+
+  it("should not remove the element if the index is greater the linkedlists length", () => {
+    const linkedList = new DoublyLinkedList();
+
+    const firstValue = "hello";
+    const secondValue = "world";
+    const thirdValue = "universe";
+
+    linkedList.push(firstValue);
+    linkedList.push(secondValue);
+    linkedList.push(thirdValue);
+
+    expect(linkedList.length).toBe(3);
+    expect(linkedList.remove(4)).toBe(undefined);
+  });
+  it("should not remove the element if the index is equal the linkedlists length", () => {
+    const linkedList = new DoublyLinkedList();
+
+    const firstValue = "hello";
+    const secondValue = "world";
+
+    linkedList.push(firstValue);
+    linkedList.push(secondValue);
+
+    expect(linkedList.length).toBe(2);
+    expect(linkedList.remove(2)).toBe(undefined);
+  });
+
+  it("should remove the first element", () => {
+    const linkedList = new DoublyLinkedList();
+
+    const firstValue = "hello";
+    const secondValue = "world";
+    const thirdValue = "universe";
+
+    linkedList.push(firstValue);
+    linkedList.push(secondValue);
+    linkedList.push(thirdValue);
+
+    expect(linkedList.length).toBe(3);
+    linkedList.remove(0);
+    expect(linkedList.get(0).value).toBe(secondValue);
+    expect(linkedList.get(0).next.value).toBe(thirdValue);
+    expect(linkedList.get(0).previous).toBe(null);
+    expect(linkedList.length).toBe(2);
+  });
+
+  it("should remove the last element", () => {
+    const linkedList = new DoublyLinkedList();
+
+    const firstValue = "hello";
+    const secondValue = "world";
+    const thirdValue = "universe";
+
+    linkedList.push(firstValue);
+    linkedList.push(secondValue);
+    linkedList.push(thirdValue);
+
+    expect(linkedList.length).toBe(3);
+    linkedList.remove(2);
+    expect(linkedList.get(2)).toBe(null);
+    expect(linkedList.get(1).next).toBe(null);
+    expect(linkedList.get(1).previous.value).toBe(firstValue);
+    expect(linkedList.length).toBe(2);
+  });
+
+  it("should remove the second element", () => {
+    const linkedList = new DoublyLinkedList();
+
+    const firstValue = "hello";
+    const secondValue = "world";
+    const thirdValue = "universe";
+    const fourthValue = "galaxy";
+
+    linkedList.push(firstValue);
+    linkedList.push(secondValue);
+    linkedList.push(thirdValue);
+    linkedList.push(fourthValue);
+
+    expect(linkedList.length).toBe(4);
+    linkedList.remove(1);
+    expect(linkedList.get(1).value).toBe(thirdValue);
+    expect(linkedList.get(1).next.value).toBe(fourthValue);
+    expect(linkedList.get(1).previous.value).toBe(firstValue);
+    expect(linkedList.get(2).previous.value).toBe(thirdValue);
+    expect(linkedList.get(0).next.value).toBe(thirdValue);
+    expect(linkedList.length).toBe(3);
+  });
 });
