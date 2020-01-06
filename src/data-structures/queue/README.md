@@ -13,3 +13,15 @@ Queues exist everywhere! Think about the last time you waited in line...
 - Background tasks
 - Uploading resources.
 - Printing / Task processing
+
+## Big O compared with arrays and Linked Lists
+
+| Data Structure     | Time Complexity |        |           |          |        |        |           |          | Space Complexity |
+| :----------------- | :-------------: | :----: | :-------: | :------: | :----: | :----: | :-------: | :------: | :--------------: |
+|                    |     average     |        |           |          | Worst  |        |           |          |      Worst       |
+|                    |     Access      | Search | Insertion | Deletion | Access | Search | Insertion | Deletion |                  |
+| Queue              |      O(N)       |  O(N)  |   O(1)    |   O(1)   |  O(N)  |  O(N)  |   O(1)    |   O(1)   |       O(N)       |
+| Stack              |      O(N)       |  O(N)  |   O(1)    |   O(1)   |  O(N)  |  O(N)  |   O(1)    |   O(1)   |       O(N)       |
+| Doubly Linked List |      O(N)       |  O(N)  |   O(1)    |   O(1)   |  O(N)  |  O(N)  |   O(1)    |   O(1)   |       O(N)       |
+| Singly Linked List |      O(N)       |  O(N)  |   O(1)    |   O(1)   |  O(N)  |  O(N)  |   O(1)    |   O(1)   |       O(N)       |
+| Array              |      O(1)       |  O(N)  |   O(N)    |   O(N)   |  O(1)  |  O(N)  |   O(N)    |   O(N)   |       O(N)       |

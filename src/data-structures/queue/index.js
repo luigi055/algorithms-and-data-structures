@@ -27,13 +27,13 @@ class Queue {
 
   dequeue() {
     if (!this.head) return null;
-    const temporalNode = this.head;
 
+    const temporalNode = this.head;
     if (this.head === this.tail) {
       this.head = null;
       this.tail = null;
     } else {
-      this.head = temporalNode.next;
+      this.head = this.head.next;
     }
 
     this.size--;
