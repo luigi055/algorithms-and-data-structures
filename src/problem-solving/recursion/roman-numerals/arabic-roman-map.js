@@ -5,6 +5,8 @@ const romanFifteen = "L";
 const romanOneHundred = "C";
 const romanFiveHundred = "D";
 const romanOneThousand = "M";
+const romanFiveThousand = "V̅";
+const romanTenThousand = "X̅";
 
 const romanNumberMap = {
   0: "",
@@ -38,6 +40,14 @@ const romanNumberMap = {
   1000: romanOneThousand,
   2000: romanOneThousand + romanOneThousand,
   3000: romanOneThousand + romanOneThousand + romanOneThousand,
+  4000: romanOneThousand + romanFiveThousand,
+  5000: romanFiveThousand,
+  6000: romanFiveThousand + romanOneThousand,
+  7000: romanFiveThousand + romanOneThousand + romanOneThousand,
+  8000:
+    romanFiveThousand + romanOneThousand + romanOneThousand + romanOneThousand,
+  9000: romanOneThousand + romanTenThousand,
+  10000: romanTenThousand,
 };
 
 export default romanNumberMap;

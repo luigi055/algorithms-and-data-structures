@@ -29,6 +29,17 @@ describe("Test convertToRoman function", () => {
     [1023, "MXXIII"],
     [2014, "MMXIV"],
     [3999, "MMMCMXCIX"],
+    [4000, "MV̅"],
+    [5000, "V̅"],
+    [5002, "V̅II"],
+    [6000, "V̅M"],
+    [7000, "V̅MM"],
+    [7053, "V̅MMLIII"],
+    [8000, "V̅MMM"],
+    [8796, "V̅MMMDCCXCVI"],
+    [9000, "MX̅"],
+    [9304, "MX̅CCCIV"],
+    [10000, "X̅"],
   ])("should convert %i to %s", (number, expected) => {
     expect(convertToRoman(number)).toEqual(expected);
   });
