@@ -7,8 +7,10 @@ In a MaxBinaryHeap, parent nodes are always larger than child nodes. In a MinBin
 ## Why do we need to know this.
 
 - Binary Heaps are used to implement Priority Queues, which are **very** commonly used data structures.
-
 - They are also used quite a bit, with **Graph Traversal** algorithms.
+- Binary Heaps are very useful data structures for sorting, and implementing other data structures like priority queues.
+- Binary Heaps are either MaxBinaryHeaps or MinBinaryHeaps with parents either being smaller or larger than their children.
+- with just a little bit of math, we can represent heaps using arrays.
 
 ## Easy representation of Binary Heap (Tree).
 
