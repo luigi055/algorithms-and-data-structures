@@ -62,8 +62,8 @@ class PriorityQueue {
     }
   }
 
-  enqueue(value) {
-    this.values.push(value);
+  enqueue(priority, value) {
+    this.values.push(new Node(priority, value));
     this._bubbleUpByIndex(this.values.length -1);
   }
 
