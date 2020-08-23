@@ -1,4 +1,4 @@
-class MaxBinaryHeap {
+class MinBinaryHeap {
   constructor() {
     this.values = [];
   }
@@ -29,7 +29,7 @@ class MaxBinaryHeap {
     const fatherValue = this.values[fatherValueIndex];
 
     if (fatherValueIndex <0 ) return;
-    if (newValue <= fatherValue) return;
+    if (newValue >= fatherValue) return;
 
     this._swapValues(fatherValueIndex,childIndex)
     this._bubbleUpByIndex(fatherValueIndex);
@@ -42,12 +42,12 @@ class MaxBinaryHeap {
     const rightChildValue = this.values[rightChildIndex]
     const newFatherValue = this.values[fatherIndex]
 
-    if (newFatherValue < leftChildValue && leftChildValue > rightChildValue) {
+    if (newFatherValue > leftChildValue && !rightChildValue || leftChildValue < rightChildValue ) {
       this._swapValues(fatherIndex, leftChildIndex);
       this._bubbleDownByIndex(leftChildIndex);
       return;
     }
-    if (newFatherValue < rightChildValue && rightChildValue > leftChildValue) {
+    if (newFatherValue > rightChildValue && !leftChildValue || rightChildValue < leftChildValue ) {
       this._swapValues(fatherIndex, rightChildIndex);
       this._bubbleDownByIndex(rightChildIndex);
       return;
@@ -74,4 +74,4 @@ class MaxBinaryHeap {
 
 }
 
-export default MaxBinaryHeap;
+export default MinBinaryHeap;

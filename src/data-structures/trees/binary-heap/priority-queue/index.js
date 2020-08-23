@@ -1,4 +1,12 @@
-class MaxBinaryHeap {
+export class Node {
+  constructor(priority, value) {
+    this.priority = priority
+    this.value = value;
+  }
+}
+
+// Implementing a priorityQueue using a MinBinaryHeap
+class PriorityQueue {
   constructor() {
     this.values = [];
   }
@@ -24,12 +32,12 @@ class MaxBinaryHeap {
   }
 
   _bubbleUpByIndex(childIndex) {
-    const newValue = this.values[childIndex]
+    const newValue = this.values[childIndex].priority
     const fatherValueIndex = this._getFatherIndex(childIndex);
-    const fatherValue = this.values[fatherValueIndex];
+    const fatherValue = this.values[fatherValueIndex] ? this.values[fatherValueIndex].priority : undefined;
 
     if (fatherValueIndex <0 ) return;
-    if (newValue <= fatherValue) return;
+    if (newValue >= fatherValue) return;
 
     this._swapValues(fatherValueIndex,childIndex)
     this._bubbleUpByIndex(fatherValueIndex);
@@ -38,29 +46,28 @@ class MaxBinaryHeap {
   _bubbleDownByIndex(fatherIndex) {
     const leftChildIndex = this._getLeftChildIndex(fatherIndex)
     const rightChildIndex = this._getRightChildIndex(fatherIndex)
-    const leftChildValue = this.values[leftChildIndex]
-    const rightChildValue = this.values[rightChildIndex]
-    const newFatherValue = this.values[fatherIndex]
+    const leftChildValue = this.values[leftChildIndex]? this.values[leftChildIndex].priority : undefined;
+    const rightChildValue = this.values[rightChildIndex]? this.values[rightChildIndex].priority: undefined;
+    const newFatherValue = this.values[fatherIndex]? this.values[fatherIndex].priority : undefined
 
-    if (newFatherValue < leftChildValue && leftChildValue > rightChildValue) {
+    if (newFatherValue > leftChildValue && !rightChildValue || leftChildValue < rightChildValue ) {
       this._swapValues(fatherIndex, leftChildIndex);
       this._bubbleDownByIndex(leftChildIndex);
       return;
     }
-    if (newFatherValue < rightChildValue && rightChildValue > leftChildValue) {
+    if (newFatherValue > rightChildValue && !leftChildValue || rightChildValue < leftChildValue ) {
       this._swapValues(fatherIndex, rightChildIndex);
       this._bubbleDownByIndex(rightChildIndex);
       return;
     }
-
   }
 
-  insert(value) {
+  enqueue(value) {
     this.values.push(value);
     this._bubbleUpByIndex(this.values.length -1);
   }
 
-  extractMax() {
+  dequeue() {
     const extractedValue = this.values[0] || null;
     const lastValue = this.values.pop();
     if (this.values.length > 0) {
@@ -68,10 +75,8 @@ class MaxBinaryHeap {
 
       this._bubbleDownByIndex(0);
     }
-
     return extractedValue;
   }
-
 }
 
-export default MaxBinaryHeap;
+export default PriorityQueue;
