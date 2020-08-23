@@ -91,3 +91,16 @@ const getNodeFather = n => Math.floor((n-1)/2)
 const fatherIndex = getNodeFather(4) // 1
 binaryHeapStorage[fatherIndex] // 19
 ```
+### Compared with others Data Structures
+
+| Data Structure     | Time Complexity |          |           |          |        |        |           |          | Space Complexity |
+| :----------------- | :-------------: | :------: | :-------: | :------: | :----: | :----: | :-------: | :------: | :--------------: |
+|                    |     average     |          |           |          | Worst  |        |           |          |      Worst       |
+|                    |     Access      |  Search  | Insertion | Deletion | Access | Search | Insertion | Deletion |                  |
+| Binary Heap        |       -         |   O(N)   | O(Log N)  | O(Log N) |   -    |  O(N)  | O(Log N)  | O(Log N) |       O(N)       |
+| Binary Search Tree |    O(Log N)     | O(Log N) | O(Log N)  | O(Log N) |  O(N)  |  O(N)  |   O(1)    |   O(1)   |       O(N)       |
+| Queue              |      O(N)       |   O(N)   |   O(1)    |   O(1)   |  O(N)  |  O(N)  |   O(1)    |   O(1)   |       O(N)       |
+| Stack              |      O(N)       |   O(N)   |   O(1)    |   O(1)   |  O(N)  |  O(N)  |   O(1)    |   O(1)   |       O(N)       |
+| Doubly Linked List |      O(N)       |   O(N)   |   O(1)    |   O(1)   |  O(N)  |  O(N)  |   O(1)    |   O(1)   |       O(N)       |
+| Singly Linked List |      O(N)       |   O(N)   |   O(1)    |   O(1)   |  O(N)  |  O(N)  |   O(1)    |   O(1)   |       O(N)       |
+| Array              |      O(1)       |   O(N)   |   O(N)    |   O(N)   |  O(1)  |  O(N)  |   O(N)    |   O(N)   |       O(N)       |
