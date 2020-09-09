@@ -58,7 +58,7 @@ describe("testing Hash Table", () => {
     expect(hashTable.get(pair5[0])).toBe(pair5[1])
   })
   
-  describe("Testing values method", () => {
+  describe("Testing values and keys methods", () => {
     it ("should return empty array when invoke values method of the an empty hash table", () => {
       expect(hashTable.values()).toEqual([])
     })
@@ -77,6 +77,26 @@ describe("testing Hash Table", () => {
       hashTable.set(...pair5)
 
       expect(hashTable.values()).toEqual([pair2[1], pair5[1], pair1[1], pair3[1], pair4[1],])
+      expect(hashTable.keys()).toEqual([pair2[0], pair5[0], pair1[0], pair3[0], pair4[0],])
+    })
+    
+    it ("should not fetch duplicated value", () => {
+      const pair1 = ["name", "pedro"]
+      const pair2 = ["lastName", "La Rosa"]
+      const pair3 = ["age", 30]
+      const pair4 = ["address", "barcelona"]
+      const pair5 = ["job", "Programmer"]
+      const pair6 = ["job", "Programmer"]
+      
+      hashTable.set(...pair1)
+      hashTable.set(...pair2)
+      hashTable.set(...pair3)
+      hashTable.set(...pair4)
+      hashTable.set(...pair5)
+      hashTable.set(...pair6)
+
+      expect(hashTable.values()).toEqual([pair2[1], pair5[1], pair1[1], pair3[1], pair4[1],])
+      expect(hashTable.keys()).toEqual([pair2[0], pair5[0], pair1[0], pair3[0], pair4[0],])
     })
   })
 })
