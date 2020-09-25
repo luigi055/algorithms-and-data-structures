@@ -64,3 +64,16 @@ graphs is a collection of nodes and connections between those nodes
 ### In this example we're going to implement an Adjacency List
 
 why?... Most data in the real-world tends to lend itself to sparser and/or larger graphs
+
+## Graph Traversals
+
+Traversal means Visiting / Updating / Checking each vertex in a graph
+
+## Graph Traversal Uses
+  - Peer to Peer networking
+  - Web Crawlers
+  - Finding "closest" matches/recommendations
+  - Shortest path problems
+    -- GPS Navigation
+    -- Solving Mazes
+    -- AI (shortest path to win the game)
