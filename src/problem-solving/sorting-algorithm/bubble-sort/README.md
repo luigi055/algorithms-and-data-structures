@@ -18,7 +18,9 @@ for i = 1:n,
 end
 ```
 
-## Big O
+## Big-O Complexity
 
-__Worst Case:__ O(n^2)
-__Best Case__ O(n)
+|                 | Time Complexity |                 |  Space Complexity  |
+| :-------------: | :-------------: | :-------------: | :----------------: |
+|       Best      |     average     |       Worst     |        Worst       |
+|       O(n)      |     O(n^2)      |       O(n^2)    |        O(1)        |

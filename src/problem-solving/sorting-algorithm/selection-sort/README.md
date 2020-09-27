@@ -15,5 +15,11 @@ for i = 1:n,
     → invariant: a[1..i] in final position
 end
 ```
+## Big-O Complexity
+
+|                 | Time Complexity |                 |  Space Complexity  |
+| :-------------: | :-------------: | :-------------: | :----------------: |
+|       Best      |     average     |       Worst     |        Worst       |
+|      O(n^2)     |     O(n^2)      |       O(n^2)    |        O(1)        |
 
 [More about Selection Sort](https://www.toptal.com/developers/sorting-algorithms/selection-sort)
