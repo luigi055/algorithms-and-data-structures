@@ -1,4 +1,3 @@
-// Implementation of a Undirected Graph with adjacency List
 class Graph {
   constructor() {
     this._adjacencyList = {}

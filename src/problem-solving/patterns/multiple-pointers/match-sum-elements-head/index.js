@@ -9,7 +9,9 @@ function matchElementsSumHead(arr) {
 
   while (left <= right) {
     if (numbers[left] + numbers[right] === toCompare) {
-      result += ` ${numbers[left]},${numbers[right]}`
+      const pairInString = ` ${numbers[left]},${numbers[right]}`
+
+      result += !result.includes(pairInString) ? pairInString : ""
       right--
     } else if (right === left) {
       right = numbers.length - 1;
@@ -19,7 +21,7 @@ function matchElementsSumHead(arr) {
     }
   }
 
-  return result.trim();
+  return result === "" ? -1 : result.trim();
 }
 
 export default matchElementsSumHead
