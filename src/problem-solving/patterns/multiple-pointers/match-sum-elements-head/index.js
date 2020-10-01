@@ -1,24 +1,24 @@
-function matchElementsSumHead(arr) {
-  if (arr === undefined) return -1
-  if (arr.length <= 1) return -1
+function matchElementsSumHead(array = []) {
+  if (array === undefined) return -1
+  if (array.length <= 1) return -1
 
-  const [toCompare, ...numbers] = arr
+  const [toCompare, ...numbers] = array
   let left = 0;
   let right = numbers.length - 1;
-  let result = ""
+  let result = "";
 
-  while (left <= right) {
-    if (numbers[left] + numbers[right] === toCompare) {
-      const pairInString = ` ${numbers[left]},${numbers[right]}`
-
-      result += !result.includes(pairInString) ? pairInString : ""
-      right--
-    } else if (right === left) {
-      right = numbers.length - 1;
-      left++
-    }  else {
+  while (left < array.length-1) {
+    let sum = numbers[left] + numbers[right];
+    if (right === left) {
+      left++;
+      right = numbers.length-1
+    } else if (sum === toCompare) {
+      result += ` ${numbers[left]},${numbers[right]}`
+      right--;
+    } else  {
       right--
     }
+
   }
 
   return result === "" ? -1 : result.trim();

@@ -8,7 +8,7 @@ describe("Testing matchElementsSumHead function" , () => {
     [[6,2], -1],
     [[100, 90, 90, 90, 90, 11], -1],
     [[8, -5, 4, 2, 7, -6, 4], "4,4"],
-    // [[8, 1, 2, 3, 4, 5, 7] , "1,7 3,5"] // <- work on this test
+    [[8, 1, 2, 3, 4, 5, 7] , "1,7 3,5"]
   ])("should return -1 when neither of the numbers in the tail of the array subtract the head", (arr, expected) => {
     expect(matchElementsSumHead(arr)).toEqual(expected);
   });
