@@ -18,6 +18,15 @@ There is a family of sorting algorithms that can improve complexity from O(n^2) 
     merge sort
     radix sort
 
+## Comparison Sorts 
+  - bubble Sort
+  - Selection Sort
+  - Insertion Sort
+  - Merge Sort
+  - Quick Sort
+
+  [read more about comparison sort](https://en.wikipedia.org/wiki/Comparison_sort)
+
 ### Examples:
   - Sorting numbers from smallest to largest.
   - Sorting names alphabetically.
