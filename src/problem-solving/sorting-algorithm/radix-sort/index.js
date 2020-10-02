@@ -3,7 +3,7 @@ const getDigit = (number, digitPosition) =>
 
 const countDigit = number => (number === 0)
   ? 1 
-  : Math.ceil(Math.log10(Math.abs(number)))
+  : Math.floor(Math.log10(Math.abs(number))) +1
 
 const getMostDigits =
   (numbers) => countDigit(numbers.reduce((prev, curr) => Math.max(prev,curr)))
