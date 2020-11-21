@@ -1,3 +1,9 @@
+/**
+ *  sort elements in an array by decreasing frequency of elements. 
+ *  If two elements have the same frequency, sort them by increasing value.
+ *  Time Complexity: O(n log n)
+ *  Space Complexity: O(n)
+ */
 function sortByFrequency(numbers){
   const frequencyMap = new Map();
 
