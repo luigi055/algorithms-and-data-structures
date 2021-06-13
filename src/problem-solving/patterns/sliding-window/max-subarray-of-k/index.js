@@ -3,6 +3,8 @@
 
 // signature:
 // maxSubarrayOfSizeK :: number[] -> number -> number;
+// Time Complexity = O(N)
+// Space Complexity = O(1);
 
 export default function maxSubarrayOfSizeK(numbers, k) {
 	if (numbers.length - 1 < k) return 0;
