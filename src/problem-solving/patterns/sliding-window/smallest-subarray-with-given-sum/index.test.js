@@ -9,6 +9,8 @@ describe("Testing smallestSubarrayGivenSum function", () => {
 		[0, 8, [1, 2]],
 		[1, 5, [2, 5]],
 		[0, 5, []],
+		[2, 9, [2, 1, 6, 5, 4]],
+		[0, 95, [1, 4, 16, 22, 5, 7, 8, 9, 10]],
 	])(
 		"should return %s when S is %s and numbers are %s",
 		(expectedResult, s, numbers) => {

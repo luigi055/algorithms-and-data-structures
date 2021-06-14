@@ -11,6 +11,8 @@
 
 // Signature:
 // fruitIntoBaskets :: char[] -> number
+// Time Complexity = O(N + N) => O(N)
+// Space Complexity = O(1) Since can be a maximum of three types of fruits stored in the frequency counter;
 
 export default function fruitIntoBaskets(fruits) {
 	if (fruits.length === 0) return 0;
