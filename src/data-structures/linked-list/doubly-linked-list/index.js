@@ -1,4 +1,4 @@
-class Node {
+class LinkedListNode {
 	constructor(value) {
 		this.value = value;
 		this.next = null;
@@ -13,8 +13,40 @@ class DoublyLinkedList {
 		this.length = 0;
 	}
 
+	[Symbol.iterator]() {
+		let current = this.head;
+		return {
+			next() {
+				if (current) {
+					const value = current;
+					current = current.next;
+					return { value: value, done: false };
+				}
+				return { value: null, done: true };
+			},
+		};
+	}
+
+	values() {
+		return {
+			[Symbol.iterator]: () => {
+				const current = this.head;
+				return {
+					next() {
+						if (current) {
+							let value = current.value;
+							current = current.next;
+							return { value: value, done: false };
+						}
+						return { value: null, done: true };
+					},
+				};
+			},
+		};
+	}
+
 	push(value) {
-		const newNode = new Node(value);
+		const newNode = new LinkedListNode(value);
 		if (!this.head) {
 			this.head = newNode;
 			this.tail = newNode;
@@ -66,7 +98,7 @@ class DoublyLinkedList {
 	}
 
 	unshift(value) {
-		const newNode = new Node(value);
+		const newNode = new LinkedListNode(value);
 
 		if (!this.head) {
 			this.head = newNode;
@@ -118,7 +150,7 @@ class DoublyLinkedList {
 		if (index === this.length) return !!this.push(value);
 		if (index === 0) return !!this.unshift(value);
 
-		const newNode = new Node(value);
+		const newNode = new LinkedListNode(value);
 		const previousNode = this.get(index - 1);
 		const nextNode = previousNode.next;
 		previousNode.next = newNode;
